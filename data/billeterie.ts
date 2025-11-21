@@ -365,8 +365,10 @@ export function genererDeparts(): Depart[] {
     dateHeureArrivee: creerDateArrivee(creerDate(demain, 8, 0), 480),
     nombrePlacesTotal: 200,
     nombrePlacesVendues: 156,
+    nombrePlacesReservees: 0,
     prix: 12000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   {
     id: "DEP-009",
@@ -376,8 +378,10 @@ export function genererDeparts(): Depart[] {
     dateHeureArrivee: creerDateArrivee(creerDate(apresDemain, 8, 0), 480),
     nombrePlacesTotal: 200,
     nombrePlacesVendues: 42,
+    nombrePlacesReservees: 0,
     prix: 12000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   // SNCC SNC-02 (Kinshasa → Lubumbashi)
   {
@@ -388,8 +392,10 @@ export function genererDeparts(): Depart[] {
     dateHeureArrivee: creerDateArrivee(creerDate(apresDemain, 10, 0), 8640),
     nombrePlacesTotal: 300,
     nombrePlacesVendues: 89,
+    nombrePlacesReservees: 0,
     prix: 45000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   // ONATRA ONT-01 (Kinshasa → Mbandaka)
   {
@@ -400,8 +406,10 @@ export function genererDeparts(): Depart[] {
     dateHeureArrivee: creerDateArrivee(creerDate(demain, 14, 0), 7200),
     nombrePlacesTotal: 150,
     nombrePlacesVendues: 112,
+    nombrePlacesReservees: 0,
     prix: 25000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   // RVA RVA-01 (Kinshasa → Lubumbashi)
   {
@@ -412,8 +420,10 @@ export function genererDeparts(): Depart[] {
     dateHeureArrivee: creerDateArrivee(creerDate(demain, 7, 0), 120),
     nombrePlacesTotal: 120,
     nombrePlacesVendues: 98,
+    nombrePlacesReservees: 0,
     prix: 150000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   {
     id: "DEP-013",
@@ -423,8 +433,10 @@ export function genererDeparts(): Depart[] {
     dateHeureArrivee: creerDateArrivee(creerDate(apresDemain, 7, 0), 120),
     nombrePlacesTotal: 120,
     nombrePlacesVendues: 67,
+    nombrePlacesReservees: 0,
     prix: 150000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   // RVA RVA-02 (Kinshasa → Goma)
   {
@@ -435,8 +447,10 @@ export function genererDeparts(): Depart[] {
     dateHeureArrivee: creerDateArrivee(creerDate(demain, 11, 30), 90),
     nombrePlacesTotal: 120,
     nombrePlacesVendues: 84,
+    nombrePlacesReservees: 0,
     prix: 180000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   // TRANSAUTO TAE-01 (Kinshasa → Kikwit)
   {
@@ -447,8 +461,10 @@ export function genererDeparts(): Depart[] {
     dateHeureArrivee: creerDateArrivee(creerDate(demain, 6, 30), 360),
     nombrePlacesTotal: 50,
     nombrePlacesVendues: 38,
+    nombrePlacesReservees: 0,
     prix: 20000,
     statut: "PLANIFIE",
+    disponiblePourAchatImmediat: true,
   },
   // DÉPARTS SUPPLÉMENTAIRES POUR DÉMONSTRATION
   // BUS-TSC-003 - Départs supplémentaires
