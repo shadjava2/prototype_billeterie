@@ -61,6 +61,8 @@ interface BilleterieContextType {
   getDepartsByCodeBus: (codeBus: string) => Depart[];
   getTicketsByClient: (clientNumero: string) => Ticket[];
   getTicketsByOperateur: (operateurId: string) => Ticket[];
+  getLignes: () => Ligne[];
+  getDeparts: () => Depart[];
 }
 
 const BilleterieContext = createContext<BilleterieContextType | undefined>(undefined);
