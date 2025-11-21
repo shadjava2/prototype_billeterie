@@ -371,7 +371,7 @@ export default function ClientPage() {
 
                 {/* Bouton de recherche amélioré */}
                 <button
-                  onClick={handleSearch}
+                  onClick={() => handleSearch()}
                   disabled={loading || !codeBus.trim()}
                   className="w-full px-8 py-5 bg-gradient-to-r from-[#0033A0] via-[#002280] to-[#0033A0] text-white rounded-xl hover:from-[#002280] hover:via-[#0033A0] hover:to-[#002280] transition-all shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-3 relative overflow-hidden group"
                 >
