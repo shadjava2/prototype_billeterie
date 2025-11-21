@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prototype Billeterie Nationale
 
-## Getting Started
+Application de gestion de billeterie nationale pour le Ministère des Transports.
 
-First, run the development server:
+## 🚀 Déploiement sur serveur OVH
+
+### Prérequis
+- Docker et Docker Compose installés
+- Accès SSH au serveur
+- Port 3377 ouvert dans le firewall
+
+### Instructions de déploiement
+
+1. **Ouvrir le port 3377 dans le firewall :**
+```bash
+sudo ufw allow 3377/tcp
+sudo ufw reload
+```
+
+2. **Aller dans le dossier du projet :**
+```bash
+cd /opt/prototype_billeterie
+```
+
+3. **Cloner le dépôt (première fois) :**
+```bash
+git clone https://github.com/shadjava2/prototype_billeterie.git .
+```
+
+4. **Mettre à jour le code :**
+```bash
+git pull origin main
+```
+
+5. **Reconstruire et lancer le conteneur :**
+```bash
+docker compose up -d --build
+```
+
+6. **Vérifier que le conteneur tourne :**
+```bash
+docker compose ps
+```
+
+7. **Voir les logs en temps réel :**
+```bash
+docker compose logs -f billeterie-proto
+```
+
+### Accès à l'application
+
+L'application sera accessible sur : `http://votre-serveur:3377`
+
+### Commandes utiles
+
+- **Arrêter le conteneur :**
+```bash
+docker compose down
+```
+
+- **Redémarrer le conteneur :**
+```bash
+docker compose restart
+```
+
+- **Voir les logs :**
+```bash
+docker compose logs billeterie-proto
+```
+
+## 🛠️ Développement local
+
+### Installation
+
+```bash
+npm install
+```
+
+### Lancer le serveur de développement
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build de production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📦 Structure du projet
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` - Pages et routes Next.js
+- `components/` - Composants React réutilisables
+- `data/` - Données et types TypeScript
+- `lib/` - Utilitaires et contextes
+- `public/` - Fichiers statiques
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Technologies utilisées
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js 16
+- React 18
+- TypeScript
+- Tailwind CSS
+- Docker
 
-## Deploy on Vercel
+## 📝 Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- L'application utilise un système de simulation en mémoire pour les données
+- Les données sont persistées en session uniquement
+- Pour la production, il faudra intégrer une base de données réelle
