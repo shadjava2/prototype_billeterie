@@ -49,6 +49,11 @@ export default function LayoutBilleterie({ children }: { children: React.ReactNo
   }, [userBilleterie, pathname, router]);
 
   const handleSelectRole = (role: RoleBilleterie, operateurId?: string) => {
+    // Vérifier que userBilleterie existe
+    if (!userBilleterie) {
+      return;
+    }
+    
     // Si c'est le même rôle et opérateur, ne rien faire
     if (userBilleterie.role === role && userBilleterie.operateurId === operateurId) {
       setSelecteurOpen(false);
