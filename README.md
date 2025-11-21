@@ -13,7 +13,6 @@ Application de gestion de billeterie nationale pour le Ministère des Transports
 
 #### Option 1 : Script automatique (recommandé)
 
-1. **Télécharger et exécuter le script de déploiement :**
 ```bash
 cd /opt
 wget https://raw.githubusercontent.com/shadjava2/prototype_billeterie/main/deploy.sh
@@ -23,41 +22,32 @@ sudo ./deploy.sh
 
 #### Option 2 : Déploiement manuel
 
-1. **Créer le dossier et ouvrir le port :**
 ```bash
-sudo mkdir -p /opt/prototype_billeterie
-sudo chown -R $USER:$USER /opt/prototype_billeterie
+# 1. Ouvrir le port 3377
 sudo ufw allow 3377/tcp
 sudo ufw reload
-```
 
-2. **Aller dans le dossier :**
-```bash
+# 2. Créer le dossier (s'il n'existe pas)
+sudo mkdir -p /opt/prototype_billeterie
+sudo chown -R $USER:$USER /opt/prototype_billeterie
+
+# 3. Aller dans le dossier
 cd /opt/prototype_billeterie
-```
 
-3. **Cloner ou mettre à jour le dépôt :**
-```bash
-# Si le dossier est vide ou n'existe pas
+# 4. Cloner ou mettre à jour
 if [ ! -d ".git" ]; then
     git clone https://github.com/shadjava2/prototype_billeterie.git .
 else
     git pull origin main
 fi
-```
 
-4. **Reconstruire et lancer le conteneur :**
-```bash
+# 5. Reconstruire et lancer
 docker compose up -d --build
-```
 
-5. **Vérifier que le conteneur tourne :**
-```bash
+# 6. Vérifier
 docker compose ps
-```
 
-6. **Voir les logs en temps réel :**
-```bash
+# 7. Voir les logs
 docker compose logs -f billeterie-proto
 ```
 
