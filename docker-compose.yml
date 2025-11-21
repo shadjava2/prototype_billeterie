@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  billeterie-proto:
+    build: .
+    container_name: billeterie-proto
+    ports:
+      - "3377:3000" # hôte:conteneur
+    restart: unless-stopped
+
