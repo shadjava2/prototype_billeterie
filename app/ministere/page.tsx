@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import LayoutBilleterie from "@/components/LayoutBilleterie";
 import KPICard from "@/components/KPICard";
@@ -15,7 +15,7 @@ import {
 } from "@/data/billeterie";
 import { Operateur } from "@/data/types";
 
-export default function MinisterePage() {
+function MinistereContent() {
   const { userBilleterie } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -539,6 +539,20 @@ export default function MinisterePage() {
         )}
       </div>
     </LayoutBilleterie>
+  );
+}
+
+export default function MinisterePage() {
+  return (
+    <Suspense fallback={
+      <LayoutBilleterie>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0033A0]"></div>
+        </div>
+      </LayoutBilleterie>
+    }>
+      <MinistereContent />
+    </Suspense>
   );
 }
 
