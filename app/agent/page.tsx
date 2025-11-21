@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import LayoutBilleterie from "@/components/LayoutBilleterie";
 import { useAuth } from "@/lib/context";
@@ -8,7 +8,7 @@ import { useBilleterie } from "@/lib/billeterie-context";
 import { Depart, Ticket, ModePaiement } from "@/data/types";
 import QRCodeSVG from "react-qr-code";
 
-export default function AgentPage() {
+function AgentContent() {
   const { userBilleterie } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -542,6 +542,20 @@ export default function AgentPage() {
         )}
       </div>
     </LayoutBilleterie>
+  );
+}
+
+export default function AgentPage() {
+  return (
+    <Suspense fallback={
+      <LayoutBilleterie>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0033A0]"></div>
+        </div>
+      </LayoutBilleterie>
+    }>
+      <AgentContent />
+    </Suspense>
   );
 }
 
