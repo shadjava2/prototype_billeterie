@@ -6,7 +6,7 @@ import LayoutBilleterie from "@/components/LayoutBilleterie";
 import { useAuth } from "@/lib/context";
 import { useBilleterie } from "@/lib/billeterie-context";
 import { Depart, Ticket, ModePaiement } from "@/data/types";
-import { QRCodeSVG } from "react-qr-code";
+import QRCodeSVG from "react-qr-code";
 
 export default function AgentPage() {
   const { userBilleterie } = useAuth();
